@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - @localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="crawler">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="performance_schema"/>
+    <schema id="5" name="phpmyadmin"/>
+    <schema id="6" name="test"/>
+    <table id="7" parent="1" name="record"/>
+    <table id="8" parent="1" name="tags"/>
+    <column id="9" parent="7" name="recordID">
+      <mandatory>1</mandatory>
+      <data-type>int(5)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="10" parent="7" name="URL">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="11" parent="7" name="keyword">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="12" parent="7" name="crawled">
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <key id="13" parent="7" name="PRIMARY">
+      <columns>recordID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="14" parent="8" name="tagnum">
+      <mandatory>1</mandatory>
+      <data-type>int(4)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="15" parent="8" name="tagname">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <key id="16" parent="8" name="PRIMARY">
+      <columns>tagnum</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

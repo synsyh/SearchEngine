@@ -1,3 +1,5 @@
+package KeyWord;
+
 import java.io.FileOutputStream;
 
 public class WriteStringToTxt {

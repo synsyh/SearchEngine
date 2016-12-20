@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.sql.Connection;
 
+import Ynu.Sei.cpLibrary.BASIC.cpOutput;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -12,9 +13,10 @@ import org.apache.http.util.EntityUtils;
 
 public class httpGet {
 
-    public final static void getByString(String url, Connection conn) throws Exception {
+    public final static String getByString(String url, Connection conn) throws Exception {
         CloseableHttpClient httpclient = HttpClients.createDefault();
-
+        cpOutput output=new cpOutput("/Users/sunning/IdeaProjects/Liyang/src/pagerank.txt");
+        output.print(url+' ');
         try {
             HttpGet httpget = new HttpGet(url);
             System.out.println("executing request " + httpget.getURI());
@@ -32,15 +34,7 @@ public class httpGet {
                     }
                 }
             };
-            String responseBody = httpclient.execute(httpget, responseHandler);
-            /*
-            //print the content of the page
-            System.out.println("----------------------------------------");
-            System.out.println(responseBody);
-            System.out.println("----------------------------------------");
-            */
-            parsePage.parseFromString(responseBody,conn);
-
+            return httpclient.execute(httpget, responseHandler);
         } finally {
             httpclient.close();
         }

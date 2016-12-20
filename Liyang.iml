@@ -7,5 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Crawlerlib" level="project" />
+    <orderEntry type="library" name="lucene-core-3.4.0" level="project" />
+    <orderEntry type="library" name="IKAnalyzer-2012" level="project" />
+    <orderEntry type="library" name="cpLibrary" level="project" />
   </component>
 </module>

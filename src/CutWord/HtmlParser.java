@@ -1,3 +1,5 @@
+package CutWord;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,8 +26,8 @@ public class HtmlParser {
         URL url = new URL(htmlUrl);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         //int a=connection.getResponseCode();
-       //System.out.println(a);
-       connection.setDoOutput(true);
+        //System.out.println(a);
+        connection.setDoOutput(true);
         //charSet ="gbk";
         charSet="UTF-8";
         InputStreamReader isr = new InputStreamReader(
@@ -45,14 +47,15 @@ public class HtmlParser {
     }
     //让传进来的全文与要的标签匹配
     private String getHref(String str) {
-        //Pattern pattern = Pattern.compile("<a href=.*</a>");
-        // Pattern pattern = Pattern.compile("<img src=.*");
         Pattern pattern = Pattern.compile("<title>.*</title>");
         Matcher matcher = pattern.matcher(str);
         if (matcher.find())
             return matcher.group(0);
         return null;
     }
+
+    //Pattern pattern = Pattern.compile("<a href=.*</a>");
+    // Pattern pattern = Pattern.compile("<img src=.*");
     private String getKeyword(String str) {
         Pattern pattern = Pattern.compile("<meta name=.*>");
         Matcher matcher = pattern.matcher(str);
